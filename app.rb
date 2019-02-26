@@ -1,6 +1,15 @@
 class Logger
   def initialize
-    f = File.open 'log.txt', 'a'
+    @f = File.open 'log.txt', 'a'
+  end
+  
+  @@x = nil
+
+  def self.instance
+    if @@x ==nil
+      @@x = Logger.new
+    end
+    return @@x
   end
 
   # class method
